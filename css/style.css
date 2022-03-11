@@ -12,10 +12,13 @@ body {
     text-transform: uppercase;
 }
 
+main {
+    height: 100vh;
+}
+
 #title-container {
-    background: linear-gradient(brown, rgb(122, 29, 29));
+    background: linear-gradient(rgb(165, 42, 42), rgb(122, 29, 29));
     margin-top: 20px;
-    
     width: 100vw;
 }
 
@@ -53,8 +56,60 @@ button:hover {
     background:rgb(22, 22, 22);
 }
 
-main {
-    height: 100vh;
+.video-container{
+   width: 100vw;
+   height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+
+#video {
+    width: 600px;
+    box-shadow: 1px 1px 10px 5px black;
+}
+
+.center-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    opacity: 0.7;
+    transition: ease-in 300ms;
+    cursor: pointer;
+}
+
+#progress-bar {
+    width: 600px;
+    height: 5px;
+    background-color: gray;
+    display: block;
+    position: absolute;
+    top: 0;
+    transform: translateY(-100%);
+}
+
+#controls {
+    width: 600px;
+    height: 35px;
+    background-color: rgb(19, 19, 19);
+    transform: translateY(-90%);
+    transition: ease-in 300ms;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+}
+
+img {
+    width: 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.fscreen-ico {
+    margin-left: auto;
 }
 
 footer {
@@ -64,6 +119,7 @@ footer {
     background-color: black;
     padding: 5px;
     padding-bottom: 25px;
+    font-size: 12px;
 }
 
 #github-link {
