@@ -13,12 +13,14 @@
     --alternate-color: rgb(128, 128, 128);
     --footer-color: rgb(0, 0, 0);
     --controls-color: rgb(19, 19, 19);
-    --video-width: 800px;
+    --video-width: 750px;
 }
 
 body {
     background: url(../assets/images/background-2.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
     overflow: hidden;
     color: var(--body-font-color);
     font-family: 'Raleway', sans-serif;
@@ -67,7 +69,7 @@ button:hover {
 
 .video-container{
    width: 100vw;
-   height: 100vh;
+   height: 85vh;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -162,4 +164,34 @@ footer {
 
 #github-link:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --video-width: 600px;
+    }
+
+    #title-container {
+        position: absolute;
+        width: 100vw;
+    }
+
+    #title {
+        font-size: 4vw;
+    }
+
+    .video-container {
+        height: 110vh;
+    }
+}
+
+@media (max-width: 650px) {
+    :root {
+        --video-width: 90vw;
+    }
+
+    #title {
+        font-size: 8vw;
+    }
+
 }
