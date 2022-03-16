@@ -10,13 +10,13 @@
     <script src="./scripts/functions.js"></script>
     <title>Vídeo Experimental</title>
 </head>
-<body>
+<body style="height: auto;">
     <div id="title-container">
         <h1 id="title">Experimental</h1>
     </div>
 
     <main class="video-container">
-        <video onended="ended()" preload="metadata" id="video" src="./assets/videos/experimental.mp4"></video>
+        <video preload="metadata" id="video" src="./assets/videos/experimental.mp4"></video>
         <img class="play-center-ico center-btn" onclick="play()" src="./assets/images/buttons/play.png">
 
         <div id="controls">
@@ -31,7 +31,7 @@
             <img class="fwd-ico" onclick="forward()" src="./assets/images/buttons/forward.jpg">
             <img class="audio-ico" onclick="mute()" src="./assets/images/buttons/audio-on.jpg">
             <p id="time"></p>
-            <img class="fscreen-ico" src="./assets/images/buttons/fullscreen.jpg">
+            <img class="fscreen-ico" onclick="fullScreen()" src="./assets/images/buttons/fullscreen.jpg">
         </div>
     </main>
 

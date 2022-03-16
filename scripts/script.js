@@ -5,6 +5,7 @@ let progressTrack;
 let progressThumb;
 var duration;
 let seconds = 0;
+var interval = null;
 
 progressBar = document.querySelector("#progress-bar");
 progressTrack = document.querySelector("#progress-bar-track");
@@ -28,6 +29,8 @@ if (!video) {
     playG.addEventListener("mouseout", () => controls.style.opacity = "0");
 
     // Eventos para inserção de opacidade no controle;
+
+    video.addEventListener("ended", () => video.style.filter = "saturate(0.4)");
 
     let timeContainer = document.querySelector("#time");
     video.onloadedmetadata = function () {

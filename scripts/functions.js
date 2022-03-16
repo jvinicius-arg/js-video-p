@@ -11,64 +11,68 @@ function play () {
     playG.addEventListener("mouseout", () => playG.style.opacity = "0");
 
     // Sincronização de efeitos de opacidade do botão principal com o controle;
-
+    
     if (playG.getAttribute("src") == "./assets/images/buttons/play.png") {
         video.play();
-        var interval = setInterval(timer, 900);
+        timer();
         playG.setAttribute("src", "./assets/images/buttons/pause.png");
     } else {
         video.pause();
-        clearInterval(interval);
+        stop(interval);
         playG.setAttribute("src", "./assets/images/buttons/play.png")
     }
     
     if (playP.getAttribute("src") == "./assets/images/buttons/play-p.jpg") {
-        video.play();
-        var interval = setInterval(timer, 900);
         playP.setAttribute("src", "./assets/images/buttons/pause-p.png");
     } else {
-        video.pause();
-        clearInterval(interval);
         playP.setAttribute("src", "./assets/images/buttons/play-p.jpg");
     }
+    // Play do #controls;
 
     // Funcionalidades de play, pause e troca de estilos quando pressionados;
 }
 
 function timer () {
-    let timeContainer = document.querySelector("#time");
-    let duration = (video.duration / 60).toFixed(2);
-    let percentMin;
-    let seconds;
+        interval = setInterval(function () {
+        let timeContainer = document.querySelector("#time");
+        let duration = (video.duration / 60).toFixed(2);
+        let percentMin;
+        let seconds;
 
-    duration.slice(-2) <= 9 ? percentMin = duration.slice(-1) : percentMin = duration.slice(-2);
-    
-    percentMin = "0." + percentMin;
-    seconds = (parseFloat(percentMin) * 60).toFixed();
-    duration = duration.slice(0, 1) + ":" + seconds;
+        duration.slice(-2) <= 9 ? percentMin = duration.slice(-1) : percentMin = duration.slice(-2);
+        
+        percentMin = "0." + percentMin;
+        seconds = (parseFloat(percentMin) * 60).toFixed();
+        duration = duration.slice(0, 1) + ":" + seconds;
 
-    // Exibição da duração total;
+        // Exibição da duração total;
 
-    let min = Math.floor(video.currentTime / 60);
-    console.log(min)
-    let sec = (video.currentTime).toFixed()
+        let min = Math.floor(video.currentTime / 60);
+        let sec = (video.currentTime).toFixed();
 
-    var parseSec = min * 60;
+        var parseSec = min * 60;
 
-    if (sec <= 9) {
-        sec = "0" + sec;
-    } else if (sec >= 60) {
-        sec -= parseSec;
         if (sec <= 9) {
             sec = "0" + sec;
+        } else if (sec >= 60) {
+            sec -= parseSec;
+            if (sec <= 9) {
+                sec = "0" + sec;
+            }
         }
-    }
-    
-    timeContainer.innerHTML = min + ":" + sec + "/" + duration;
+        
+        timeContainer.innerHTML = min + ":" + sec + "/" + duration;
 
-    if (video.ended == true) {
-        timeContainer.innerHTML = duration + "/" + duration;
-    }
+        if (video.ended == true) {
+            timeContainer.innerHTML = duration + "/" + duration;
+        }
+    },500);
+
+    return interval;
+}
+
+function stop (e) {
+    clearInterval(e);
 }
 
 function mute () {
@@ -106,9 +110,5 @@ function forward () {
 }
 
 function fullScreen () {
-
-}
-
-function ended () {
-    video.style.filter = "saturate(0.2)";
+    video.requestFullscreen();
 }
