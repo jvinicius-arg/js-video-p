@@ -4,6 +4,7 @@
 function play () {
     let playP = document.querySelector(".play-ico");
 
+    video.style.filter = "saturate(1)";
     video.addEventListener("click", play);
     video.addEventListener("mouseover", () => playG.style.opacity = "0.7");
     video.addEventListener("mouseout", () => playG.style.opacity = "0");
@@ -15,6 +16,7 @@ function play () {
     if (playG.getAttribute("src") == "./assets/images/buttons/play.png") {
         video.play();
         timer();
+        progress();
         playG.setAttribute("src", "./assets/images/buttons/pause.png");
     } else {
         video.pause();
@@ -69,6 +71,19 @@ function timer () {
     },500);
 
     return interval;
+}
+
+function progress () {
+    interval = setInterval(function () {
+    let percent = (video.currentTime / video.duration) * 100;
+    progressTrack.style.width = percent + "%";
+    progressThumb.style.left = percent + "%";
+
+    if (progressThumb.style.left > "98.5%") {
+        progressThumb.style.left = "98.5%";
+        stop(interval);
+    }
+    },500);
 }
 
 function stop (e) {

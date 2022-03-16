@@ -30,7 +30,13 @@ if (!video) {
 
     // Eventos para inserção de opacidade no controle;
 
-    video.addEventListener("ended", () => video.style.filter = "saturate(0.4)");
+    video.addEventListener("ended", () => {
+        video.style.filter = "saturate(0.4)";
+        playG.setAttribute("src", "./assets/images/buttons/replay.png");
+        playP.setAttribute("src", "./assets/images/buttons/replay-p.png");
+        });
+
+    // Eventos de fim de vídeo;
 
     let timeContainer = document.querySelector("#time");
     video.onloadedmetadata = function () {
@@ -48,8 +54,4 @@ if (!video) {
     } 
     
     // Exibir timer
-    
-    progressTrack // qnt já viu
-    progressThumb // a bolinha
-    //pra amh
 }
