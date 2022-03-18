@@ -1,11 +1,12 @@
 let btnSendVideo = document.querySelector("#btn-1");
-let playG;
 let progressBar;
 let progressTrack;
 let progressThumb;
 var duration;
 let seconds = 0;
 var interval = null;
+var bg = document.querySelector("#bg");
+let percentMin;
 
 progressBar = document.querySelector("#progress-bar");
 progressTrack = document.querySelector("#progress-bar-track");
@@ -13,8 +14,8 @@ progressThumb = document.querySelector("#progress-bar-thumb");
 
 // Atribuições para montagem da barra de progresso;
 
-playG = document.querySelector(".play-center-ico");
-
+let playG = document.querySelector(".play-center-ico");
+let playP = document.querySelector(".play-ico");
 let video = document.querySelector("#video");
 let controls = document.querySelector("#controls");
 
@@ -34,6 +35,8 @@ if (!video) {
         video.style.filter = "saturate(0.4)";
         playG.setAttribute("src", "./assets/images/buttons/replay.png");
         playP.setAttribute("src", "./assets/images/buttons/replay-p.png");
+        bg.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        bg.style.backdropFilter = "blur(0)";
         });
 
     // Eventos de fim de vídeo;
@@ -50,7 +53,7 @@ if (!video) {
         seconds = (parseFloat(percentMin) * 60).toFixed();
         duration = duration.slice(0, 1) + ":" + seconds;
         
-        timeContainer.innerHTML = "0:00/" + duration;
+        timeContainer.innerHTML = "0:00 / " + duration;
     } 
     
     // Exibir timer

@@ -1,7 +1,6 @@
-//buffered
-//played
-
 function play () {
+    bg.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    bg.style.backdropFilter = "blur(5px)";
     let playP = document.querySelector(".play-ico");
 
     video.style.filter = "saturate(1)";
@@ -12,8 +11,13 @@ function play () {
     playG.addEventListener("mouseout", () => playG.style.opacity = "0");
 
     // Sincronização de efeitos de opacidade do botão principal com o controle;
+
+    let pgSrc = "./assets/images/buttons/play.png";
+    let pgReplaySrc = "./assets/images/buttons/replay.png";
+    let ppSrc = "./assets/images/buttons/play-p.jpg";
+    let ppReplaySrc = "./assets/images/buttons/replay-p.png";
     
-    if (playG.getAttribute("src") == "./assets/images/buttons/play.png") {
+    if (playG.getAttribute("src") == pgSrc || playG.getAttribute("src") == pgReplaySrc) {
         video.play();
         timer();
         progress();
@@ -21,10 +25,12 @@ function play () {
     } else {
         video.pause();
         stop(interval);
+        bg.style.backgroundColor = "rgba(0, 0, 0, 0)";
+        bg.style.backdropFilter = "blur(0)";
         playG.setAttribute("src", "./assets/images/buttons/play.png")
     }
     
-    if (playP.getAttribute("src") == "./assets/images/buttons/play-p.jpg") {
+    if (playP.getAttribute("src") == ppSrc || playP.getAttribute("src") == ppReplaySrc) {
         playP.setAttribute("src", "./assets/images/buttons/pause-p.png");
     } else {
         playP.setAttribute("src", "./assets/images/buttons/play-p.jpg");
@@ -35,12 +41,9 @@ function play () {
 }
 
 function timer () {
-        interval = setInterval(function () {
+    interval = setInterval(function () {
         let timeContainer = document.querySelector("#time");
         let duration = (video.duration / 60).toFixed(2);
-        let percentMin;
-        let seconds;
-
         duration.slice(-2) <= 9 ? percentMin = duration.slice(-1) : percentMin = duration.slice(-2);
         
         percentMin = "0." + percentMin;
@@ -63,10 +66,10 @@ function timer () {
             }
         }
         
-        timeContainer.innerHTML = min + ":" + sec + "/" + duration;
+        timeContainer.innerHTML = min + ":" + sec + " / " + duration;
 
         if (video.ended == true) {
-            timeContainer.innerHTML = duration + "/" + duration;
+            timeContainer.innerHTML = duration + " / " + duration;
         }
     },500);
 
@@ -77,13 +80,21 @@ function progress () {
     interval = setInterval(function () {
     let percent = (video.currentTime / video.duration) * 100;
     progressTrack.style.width = percent + "%";
-    progressThumb.style.left = percent + "%";
 
-    if (progressThumb.style.left > "98.5%") {
-        progressThumb.style.left = "98.5%";
+    // progressThumb.style.left = percent + "%";
+
+    // if (progressThumb.style.left > "98.5%") {
+    //     progressThumb.style.left = "98.5%";
+    //     stop(interval);
+    // }
+
+    // Cursor da barra de progresso;
+
+    if (progressTrack.style.width > "99%") {
+        progressTrack.style.width = "100%";
         stop(interval);
     }
-    },500);
+    },100);
 }
 
 function stop (e) {

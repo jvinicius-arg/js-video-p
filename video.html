@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="./scripts/functions.js"></script>
+    <title>Vídeo Experimental</title>
+</head>
+<body style="height: auto;">
+
+    <div id="bg">
+        <main class="video-container">
+            <video preload="metadata" id="video" src="./assets/videos/video.mp4"></video>
+            <img class="play-center-ico center-btn" onclick="play()" src="./assets/images/buttons/play.png">
+            <div id="controls">
+                <div id="progress-bar">
+                    <div id="progress-bar-track">
+                    </div>
+                    <div id="progress-bar-thumb">
+                    </div>
+                </div>
+                <img class="play-ico" onclick="play()" src="./assets/images/buttons/play-p.jpg">
+                <img class="back-ico" onclick="back()" src="./assets/images/buttons/back.jpg">
+                <img class="fwd-ico" onclick="forward()" src="./assets/images/buttons/forward.jpg">
+                <img class="audio-ico" onclick="mute()" src="./assets/images/buttons/audio-on.jpg">
+                <p id="time"></p>
+                <img class="fscreen-ico" onclick="fullScreen()" src="./assets/images/buttons/fullscreen.jpg">
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p id="refer" class="text">Desenvolvido por <a id="github-link" href="https://github.com/jvinicius-arg">J. Vinícius Argôlo</a></p>
+    </footer>
+
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

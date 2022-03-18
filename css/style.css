@@ -13,7 +13,7 @@
     --alternate-color: rgb(128, 128, 128);
     --footer-color: rgb(0, 0, 0);
     --controls-color: rgb(19, 19, 19);
-    --video-width: 750px;
+    --video-width: 900px;
 }
 
 body {
@@ -21,10 +21,21 @@ body {
     background: url(../assets/images/background-2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
     color: var(--body-font-color);
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
+}
+
+/* main {
+    height: 100vh;
+    width: 100vw;
+} */
+
+#bg {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    transition: all 2s;
 }
 
 #title-container {
@@ -40,15 +51,26 @@ body {
     padding: 10px;
 }
 
+input[type=file] {
+    position: absolute;
+    transform: translateY(100%);
+}
+
 .btn-container{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
     text-align: center;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 }
 
-button {
+button, #btn-1 {
+    display: block;
+    box-sizing: border-box;
     width: 75vw;
     padding: 15px;
     margin-top: 8px;
@@ -64,19 +86,19 @@ button {
     transition: all 0.2s;
 }
 
-button:hover {
+a[href="./video.html"] {
+    text-decoration: none;
+}
+
+button:hover, #btn-1:hover {
     background: var(--button-hov-bg-color);
 }
 
 .video-container{
-   max-width: 100vw;
-   width: 100%;
-   height: 85vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-   position: relative;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 
 #video {
@@ -88,6 +110,8 @@ button:hover {
 
 #time {
     margin-left: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 12px;
 }
 
 .center-btn {
@@ -119,18 +143,21 @@ button:hover {
     background-color: var(--header-bg-color2);
 }
 
-#progress-bar-thumb {
+/* #progress-bar-thumb {
     position: absolute;
     transform: translateY(-20%);
     width: 8px;
     height: 8px;
     border-radius: 50%;
     background-color: white;
-}
+} */
+
+/* Cursor da barra de progresso */
 
 #controls {
+    box-sizing: border-box;
     width: var(--video-width);
-    height: 35px;
+    height: 40px;
     background-color: var(--controls-color);
     transform: translateY(-90%);
     transition: ease-in 300ms;
@@ -153,7 +180,7 @@ footer {
     position: absolute;
     bottom: 0;
     max-width: 100vw;
-    width: 95%;
+    width: 99%;
     /* Scroll indejejado caso width seja igual a 100%; */
     text-align: center;
     text-transform: none;
@@ -174,10 +201,6 @@ footer {
 }
 
 @media (max-width: 1200px) {
-    body {
-        overflow: hidden;
-    }
-
     :root {
         --video-width: 600px;
     }
@@ -190,12 +213,6 @@ footer {
 
     #title {
         font-size: 4vw;
-    }
-
-    .video-container {
-        height: 110vh;
-        max-width: 100vw;
-        width: 100%;
     }
 }
 
