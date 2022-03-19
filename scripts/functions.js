@@ -138,3 +138,29 @@ function forward () {
 function fullScreen () {
     video.requestFullscreen();
 }
+
+function readVideo () {
+    const videoInput = document.querySelector("#video-input");
+
+    videoInput.addEventListener("change", () => { 
+        const reader = new FileReader();
+        reader.readAsDataURL(videoInput.files[0]);
+
+        // function AttVideo () {
+        //     video.src = reader.result;
+        //     console.log(videoInput.files);
+        // }
+    });
+    
+    // Sistema de leitura de vídeos;
+}
+
+function AttVideo () {
+    video.src = reader.result;
+    console.log(videoInput.files);
+}
+
+function inputInsert () {
+    location.href = "./video.html";
+    hasVideo = true;
+}

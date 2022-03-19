@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="./scripts/functions.js"></script>
-    <title>Vídeo Experimental</title>
+    <title>Video Player</title>
 </head>
-<body style="height: auto;">
-
+<body>
     <div id="bg">
+        <!-- <input type="file" id="video-input"> -->
         <main class="video-container">
             <video preload="metadata" id="video" src="./assets/videos/video.mp4"></video>
             <img class="play-center-ico center-btn" onclick="play()" src="./assets/images/buttons/play.png">
@@ -37,6 +37,13 @@
         <p id="refer" class="text">Desenvolvido por <a id="github-link" href="https://github.com/jvinicius-arg">J. Vinícius Argôlo</a></p>
     </footer>
 
-    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script.js">
+    </script>
+
+    <script>
+        if (hasVideo == true) {
+            onload = AttVideo();
+        }
+    </script>
 </body>
 </html>

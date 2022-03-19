@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <script src="./scripts/functions.js"></script>
-    <title>Video Player</title>
+    <title>Home</title>
 </head>
 <body>
     <main>
@@ -18,8 +18,8 @@
 
         <section class="btn-container">
             <p>Escolha uma opção: </p>
-            <input id="input-file" type="file" style="display: none;" accept="video/*">
-            <label for="input-file">
+            <input id="video-input" onchange="inputInsert()" type="file" style="display: none;" accept="video/*">
+            <label for="video-input">
                 <span id="btn-1">Enviar vídeo do armazenamento interno</span>
             </label>
             <a href="./video.html">
@@ -31,22 +31,6 @@
     <footer>
         <p id="refer" class="text">Desenvolvido por <a id="github-link" href="https://github.com/jvinicius-arg">J. Vinícius Argôlo</a></p>
     </footer>
-
-    <!-- <script>
-        function readImage() {
-            if (this.files && this.files[0]) {
-                var file = new FileReader();
-                file.onload = function(e) {
-                document.getElementById("preview").src = e.target.result;
-            };       
-        file.readAsDataURL(this.files[0]);
-        }
-    }
-
-    document.getElementById("video-input").addEventListener("change", readImage, false);
-
-    Código para estudo
-    </script> -->
 
     <script src="./scripts/script.js"></script>
 </body>

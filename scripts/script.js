@@ -1,3 +1,4 @@
+let video = document.querySelector("#video");
 let btnSendVideo = document.querySelector("#btn-1");
 let progressBar;
 let progressTrack;
@@ -7,29 +8,34 @@ let seconds = 0;
 var interval = null;
 var bg = document.querySelector("#bg");
 let percentMin;
+var hasVideo = true;
+
+// Atribuições para montagem da barra de progresso;
 
 progressBar = document.querySelector("#progress-bar");
 progressTrack = document.querySelector("#progress-bar-track");
 progressThumb = document.querySelector("#progress-bar-thumb");
 
-// Atribuições para montagem da barra de progresso;
+// Preparação do player;
 
 let playG = document.querySelector(".play-center-ico");
 let playP = document.querySelector(".play-ico");
-let video = document.querySelector("#video");
 let controls = document.querySelector("#controls");
 
 if (!video) {
-    console.log("Vídeo não encontrado.")
+    console.log("Vídeo não encontrado.");
 } else {
+
+    // Eventos para inserção de opacidade no controle;
+
     video.addEventListener("mouseover", () => controls.style.opacity = "1");
     video.addEventListener("mouseout", () => controls.style.opacity = "0");
     controls.addEventListener("mouseover", () => controls.style.opacity = "1");
     controls.addEventListener("mouseout", () => controls.style.opacity = "0");
     playG.addEventListener("mouseover", () => controls.style.opacity = "1");
     playG.addEventListener("mouseout", () => controls.style.opacity = "0");
-
-    // Eventos para inserção de opacidade no controle;
+    
+    // Eventos de fim de vídeo;
 
     video.addEventListener("ended", () => {
         video.style.filter = "saturate(0.4)";
@@ -39,13 +45,12 @@ if (!video) {
         bg.style.backdropFilter = "blur(0)";
         });
 
-    // Eventos de fim de vídeo;
+    // Exibir timer
 
     let timeContainer = document.querySelector("#time");
     video.onloadedmetadata = function () {
         let duration = (this.duration / 60).toFixed(2);
         let percentMin;
-        let seconds;
 
         duration.slice(-2) <= 9 ? percentMin = duration.slice(-1) : percentMin = duration.slice(-2);
         
@@ -55,6 +60,4 @@ if (!video) {
         
         timeContainer.innerHTML = "0:00 / " + duration;
     } 
-    
-    // Exibir timer
 }
