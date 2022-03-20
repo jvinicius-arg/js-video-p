@@ -1,14 +1,13 @@
 let video = document.querySelector("#video");
 let btnSendVideo = document.querySelector("#btn-1");
+var bg = document.querySelector("#bg");
+var interval = null;
+let seconds = 0;
 let progressBar;
 let progressTrack;
 let progressThumb;
 var duration;
-let seconds = 0;
-var interval = null;
-var bg = document.querySelector("#bg");
 let percentMin;
-var hasVideo = true;
 
 // Atribuições para montagem da barra de progresso;
 

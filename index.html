@@ -18,11 +18,11 @@
 
         <section class="btn-container">
             <p>Escolha uma opção: </p>
-            <input id="video-input" onchange="inputInsert()" type="file" style="display: none;" accept="video/*">
+            <input id="video-input" type="file" style="display: none;" accept="video/*">
             <label for="video-input">
                 <span id="btn-1">Enviar vídeo do armazenamento interno</span>
             </label>
-            <a href="./video.html">
+            <a id="exp-link" href="./video.html?inputed=0">
                 <button id="btn-2">Experimentar a plataforma</button>
             </a>
         </section>
@@ -33,5 +33,6 @@
     </footer>
 
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

@@ -81,7 +81,7 @@ button, #btn-1 {
     transition: all 0.2s;
 }
 
-a[href="./video.html"] {
+#exp-link {
     text-decoration: none;
 }
 
