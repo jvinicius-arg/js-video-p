@@ -13,6 +13,7 @@
 </head>
 <body>
     <div id="bg">
+        <!-- <input id="txt-input" type="file"> -->
         <main class="video-container">
             <video preload="metadata" id="video" src="./assets/videos/video.mp4"></video>
             <img class="play-center-ico center-btn" onclick="play()" src="./assets/images/buttons/play.png">
@@ -40,6 +41,7 @@
     <script src="./scripts/script.js"></script>
 
     <script>
+        // const txt = document.querySelector("#txt-input");
 
         if (location.search == "?inputed=1" && videoURL) {
             video.src = videoURL;

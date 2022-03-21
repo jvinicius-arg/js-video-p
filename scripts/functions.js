@@ -1,7 +1,7 @@
 function play () {
     bg.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
     bg.style.backdropFilter = "blur(5px)";
-    let playP = document.querySelector(".play-ico");
+    const playP = document.querySelector(".play-ico");
 
     video.style.filter = "saturate(1)";
     video.addEventListener("click", play);
@@ -12,10 +12,10 @@ function play () {
 
     // Sincronização de efeitos de opacidade do botão principal com o controle;
 
-    let pgSrc = "./assets/images/buttons/play.png";
-    let pgReplaySrc = "./assets/images/buttons/replay.png";
-    let ppSrc = "./assets/images/buttons/play-p.jpg";
-    let ppReplaySrc = "./assets/images/buttons/replay-p.png";
+    const pgSrc = "./assets/images/buttons/play.png";
+    const pgReplaySrc = "./assets/images/buttons/replay.png";
+    const ppSrc = "./assets/images/buttons/play-p.jpg";
+    const ppReplaySrc = "./assets/images/buttons/replay-p.png";
     
     if (playG.getAttribute("src") == pgSrc || playG.getAttribute("src") == pgReplaySrc) {
         video.play();
@@ -42,7 +42,7 @@ function play () {
 
 function timer () {
     interval = setInterval(function () {
-        let timeContainer = document.querySelector("#time");
+        const timeContainer = document.querySelector("#time");
         let duration = (video.duration / 60).toFixed(2);
         duration.slice(-2) <= 9 ? percentMin = duration.slice(-1) : percentMin = duration.slice(-2);
         
@@ -102,7 +102,7 @@ function stop (e) {
 }
 
 function mute () {
-    let audio = document.querySelector(".audio-ico");
+    const audio = document.querySelector(".audio-ico");
 
     if (audio.getAttribute("src") == "./assets/images/buttons/audio-on.jpg") {
         video.muted = true;
@@ -116,7 +116,7 @@ function mute () {
 }
 
 function back () {
-    let back = document.querySelector(".back-ico");
+    const back = document.querySelector(".back-ico");
 
     video.currentTime -= 10;
     back.style.opacity = 0.5;
@@ -126,7 +126,7 @@ function back () {
 }
 
 function forward () {
-    let forward = document.querySelector(".fwd-ico");
+    const forward = document.querySelector(".fwd-ico");
 
     video.currentTime += 10;
     forward.style.opacity = 0.5

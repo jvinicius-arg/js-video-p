@@ -1,6 +1,6 @@
-let video = document.querySelector("#video");
-let btnSendVideo = document.querySelector("#btn-1");
-var bg = document.querySelector("#bg");
+const video = document.querySelector("#video");
+const btnSendVideo = document.querySelector("#btn-1");
+const bg = document.querySelector("#bg");
 var interval = null;
 let seconds = 0;
 let progressBar;
@@ -17,9 +17,9 @@ progressThumb = document.querySelector("#progress-bar-thumb");
 
 // Preparação do player;
 
-let playG = document.querySelector(".play-center-ico");
-let playP = document.querySelector(".play-ico");
-let controls = document.querySelector("#controls");
+const playG = document.querySelector(".play-center-ico");
+const playP = document.querySelector(".play-ico");
+const controls = document.querySelector("#controls");
 
 if (!video) {
     console.log("Vídeo não encontrado.");
@@ -46,7 +46,7 @@ if (!video) {
 
     // Exibir timer
 
-    let timeContainer = document.querySelector("#time");
+    const timeContainer = document.querySelector("#time");
     video.onloadedmetadata = function () {
         let duration = (this.duration / 60).toFixed(2);
         let percentMin;
