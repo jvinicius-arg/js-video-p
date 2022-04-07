@@ -19,7 +19,6 @@
 body {
     overflow: hidden;
     background: url(../assets/images/background-2.jpg);
-    background-size: cover;
     background-repeat: no-repeat;
     color: var(--body-font-color);
     font-family: 'Raleway', sans-serif;
