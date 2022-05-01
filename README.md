@@ -1,5 +1,5 @@
 # Video Player
 
-Adição de funções adicionais ao player nativo do navegador por meio de JavaScript: 
+## Status
 
-- Desenvolvido para fins de estudo 
+Projeto atual descontinuado e refeito em Angular dentro de um novo repositório. <a href="https://github.com/jvinicius-arg/video-player">Clique aqui para acessá-lo.</a> 
